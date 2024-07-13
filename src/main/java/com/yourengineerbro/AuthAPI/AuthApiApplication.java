@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "com.yourengineerbro.AuthAPI")
 public class AuthApiApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AuthApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AuthApiApplication.class, args);
+    }
 
 }

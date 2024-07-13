@@ -1,6 +1,7 @@
 package com.yourengineerbro.AuthAPI.service;
 
 // CustomUserDetailsService.java
+
 import com.yourengineerbro.AuthAPI.entity.User;
 import com.yourengineerbro.AuthAPI.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user == null) {
             return null;
         }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), new ArrayList<>());
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+                user.getPassword(), new ArrayList<>());
     }
 }

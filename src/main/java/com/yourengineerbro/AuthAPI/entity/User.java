@@ -23,6 +23,4 @@ public class User {
 
     @NotEmpty
     private String password;
-
-    // getters and setters
 }

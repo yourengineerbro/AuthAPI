@@ -1,6 +1,7 @@
 package com.yourengineerbro.AuthAPI.util;
 
 // JwtUtil.java
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
@@ -13,12 +14,16 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.util.Date;
 
+import static com.yourengineerbro.AuthAPI.util.Constants.Exception.INVALID_TOKEN;
+import static com.yourengineerbro.AuthAPI.util.Constants.Properties.JWT_EXPIRATION;
+import static com.yourengineerbro.AuthAPI.util.Constants.Properties.JWT_SECRET;
+
 @Component
 public class JwtUtil {
-    @Value("${jwt.secret}")
+    @Value(JWT_SECRET)
     private String secretKey;
 
-    @Value("${jwt.expiration}")
+    @Value(JWT_EXPIRATION)
     private long expiration;
 
     private Algorithm getAlgorithm() {
@@ -41,7 +46,7 @@ public class JwtUtil {
         } catch (JWTVerificationException e) {
             // can be specifically throw TokenExpiredException?
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            response.getWriter().write("Invalid Token");
+            response.getWriter().write(INVALID_TOKEN);
             return false;
         }
     }

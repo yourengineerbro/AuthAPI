@@ -11,6 +11,4 @@ import org.springframework.stereotype.Component;
 public class AuthRequest {
     private String email;
     private String password;
-
-    // getters and setters
 }
